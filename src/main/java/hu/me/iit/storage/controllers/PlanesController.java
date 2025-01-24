@@ -33,7 +33,7 @@ public class PlanesController {
     }
 
     @PutMapping("/planes/{id}")
-    public ResponseEntity<PlaneDto> updatePlane(@PathVariable Long id, PlaneDto planeDto) {
+    public ResponseEntity<PlaneDto> updatePlane(@PathVariable Long id, @Valid @RequestBody PlaneDto planeDto) {
         PlaneDto updatedPlane = planesService.updatePlane(id, planeDto);
         return ResponseEntity.ok(updatedPlane);
     }

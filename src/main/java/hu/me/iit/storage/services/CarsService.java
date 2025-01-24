@@ -2,6 +2,7 @@ package hu.me.iit.storage.services;
 
 import hu.me.iit.storage.dtos.CarDto;
 import hu.me.iit.storage.entities.Car;
+import hu.me.iit.storage.entities.Plane;
 import hu.me.iit.storage.exceptions.AppException;
 import hu.me.iit.storage.mappers.CarMapper;
 import hu.me.iit.storage.repositories.CarRepository;
@@ -38,11 +39,12 @@ public class CarsService {
 
     public CarDto updateCar(Long id, CarDto carDto) {
         Car car = mapper.toCar(carDto);
-        Car storedCar = carRepository.findById(id).orElseThrow( () -> new AppException("Car not found", HttpStatus.NOT_FOUND));
+        Car storedCar = carRepository.findById(id).orElseThrow( () -> new AppException("Plane not found", HttpStatus.NOT_FOUND));
         car.setId(storedCar.getId());
         Car updatedCar = carRepository.save(car);
         return mapper.toCarDto(updatedCar);
     }
+
 
     public void deleteCar(Long id) {
         carRepository.deleteById(id);

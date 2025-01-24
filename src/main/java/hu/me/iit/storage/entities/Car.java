@@ -23,7 +23,7 @@ public class Car {
     private String c_production_date;
 
     @ManyToOne()
-    @JoinColumn(name = "owner_id") // This is the actual foreign key column
+    @JoinColumn(name = "cars") // This is the actual foreign key column
     private Owner owner;
 
     public Long getId() {
